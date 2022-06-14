@@ -7,6 +7,7 @@ import api.motortracker.motortracker.repository.CarStatsRepository;
 import api.motortracker.motortracker.resource.CarResource;
 import api.motortracker.motortracker.resource.CarStatsResource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
@@ -25,7 +26,7 @@ public class CarStatsService {
     @Autowired
     private CarRepository carRepository;
 
-    public List<CarStatsResource> findCarStats(String plate) {
+    public Page<CarStatsResource> findCarStats(String plate, Pageable pageable) {
 
         //validate
         Car car = carRepository.findByPlate(plate);
@@ -34,11 +35,13 @@ public class CarStatsService {
             throw new IllegalArgumentException("Invalid plate");
         }
 
-        List<CarStats> carStatsList = carStatsRepository.findByCar(car);
+        //Pageable pageable = PageRequest.of(0, 5, Sort.by(Sort.Direction.DESC, "timeStamp"));
+
+        Page<CarStats> carStatsList = carStatsRepository.findByCar(car, pageable);
 
         List<CarStatsResource> carStatsResources = new ArrayList<>();
 
-        for (CarStats stat : carStatsList) {
+        for (CarStats stat : carStatsList.getContent()) {
             CarStatsResource carStatsResource = new CarStatsResource();
             carStatsResource.setId(stat.getId());
             carStatsResource.setTimeStamp(simpleDateFormat.format(stat.getTimeStamp()));
@@ -51,7 +54,9 @@ public class CarStatsService {
             carStatsResources.add(carStatsResource);
         }
 
-        return carStatsResources;
+        Page p = new PageImpl(carStatsResources, pageable, carStatsList.getTotalElements());
+
+        return new PageImpl(carStatsResources, pageable, carStatsList.getTotalElements());
     }
 
     public CarStatsResource saveCarStats(CarStatsResource carStatsResource) {

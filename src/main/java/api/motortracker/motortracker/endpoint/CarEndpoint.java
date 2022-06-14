@@ -2,6 +2,8 @@ package api.motortracker.motortracker.endpoint;
 
 import api.motortracker.motortracker.resource.CarResource;
 import api.motortracker.motortracker.resource.CarStatsResource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -30,17 +32,27 @@ public class CarEndpoint {
         return helper.findCars();
     }
 
-/*    @PostMapping(value = "/edit", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/edit", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<CarResource> editCar(@RequestBody CarResource carResource) {
         return helper.editCar(carResource);
-    }*/
-
-    //POST so that we can pass a search object
-    @PostMapping(value = "/stats/search", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<CarStatsResource>> findCarStats(@RequestBody CarResource carResource) {
-        return helper.findCarStats(carResource);
     }
 
+    /**
+     * Endpoint used to search for car statistics for the provided search criteria.
+     * @param carResource
+     * @return the list of car statistics resources matching the provided criteria.
+     */
+    @PostMapping(value = "/stats/search", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Page<CarStatsResource>> findCarStats(@RequestBody CarResource carResource,
+                                                               Pageable pageable) {
+        return helper.findCarStats(carResource, pageable);
+    }
+
+    /**
+     * Endpoint used by all clients (webapp, mobile app, etc) to post statistics for a car.
+     * @param carStatsResource
+     * @return the response entity with the saved car statistics resource.
+     */
     @PostMapping(value = "/stats", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<CarStatsResource> saveCarStats(@RequestBody CarStatsResource carStatsResource) {
         return helper.saveCarStats(carStatsResource);

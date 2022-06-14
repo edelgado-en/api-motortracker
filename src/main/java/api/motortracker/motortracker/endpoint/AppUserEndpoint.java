@@ -20,6 +20,11 @@ public class AppUserEndpoint {
         this.helper = aHelper;
     }
 
+    /**
+     * Endpoint used by all clients (mobile and web application) to signup a user.
+     * @param appUserResource
+     * @return
+     */
     @PostMapping(value = "/signin", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<AppUserResource> registerCar(@RequestBody AppUserResource appUserResource) {
         return helper.signin(appUserResource);

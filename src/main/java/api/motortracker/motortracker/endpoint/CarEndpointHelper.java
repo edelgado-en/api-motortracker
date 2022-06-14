@@ -4,6 +4,8 @@ import api.motortracker.motortracker.resource.CarResource;
 import api.motortracker.motortracker.resource.CarStatsResource;
 import api.motortracker.motortracker.service.CarService;
 import api.motortracker.motortracker.service.CarStatsService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -27,11 +29,11 @@ public class CarEndpointHelper {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-/*    public ResponseEntity<CarResource> editCar(CarResource carResource) {
+    public ResponseEntity<CarResource> editCar(CarResource carResource) {
         CarResource result = carService.editCar(carResource, "SaH1MjKpfVUD4EmmiGS2tzWnvzD3");
 
         return new ResponseEntity<>(result, HttpStatus.OK);
-    }*/
+    }
 
     public ResponseEntity<List<CarResource>> findCars() {
 
@@ -40,9 +42,9 @@ public class CarEndpointHelper {
         return new ResponseEntity<>(carResources, HttpStatus.OK);
     }
 
-    public ResponseEntity<List<CarStatsResource>> findCarStats(CarResource carResource) {
+    public ResponseEntity<Page<CarStatsResource>> findCarStats(CarResource carResource, Pageable pageable) {
 
-        List<CarStatsResource> carStatsResources = carStatsService.findCarStats(carResource.getPlate());
+        Page<CarStatsResource> carStatsResources = carStatsService.findCarStats(carResource.getPlate(), pageable);
 
         return new ResponseEntity<>(carStatsResources, HttpStatus.OK);
     }

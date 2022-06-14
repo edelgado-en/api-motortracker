@@ -52,7 +52,7 @@ public class CarService {
                 .build();
     }
 
-/*    public CarResource editCar(CarResource carResource, String uid) {
+    public CarResource editCar(CarResource carResource, String uid) {
         Car car = carRepository.findById(carResource.getId())
                                .orElseThrow(() ->new IllegalArgumentException("Invalid car id"));
 
@@ -76,7 +76,7 @@ public class CarService {
                 .plate(car.getPlate())
                 .trackerSerialNumber(car.getTracker().getSerialNumber())
                 .build();
-    }*/
+    }
 
     Tracker validateTracker(String serialNumber) {
         Tracker tracker = trackerRepository.findBySerialNumber(serialNumber);
