@@ -1,0 +1,85 @@
+2022-06-16 08:18:02,087 INFO org.springframework.boot.StartupInfoLogger [main] Starting MotortrackerApplication using Java 11.0.12 on enriques-mbp.lan with PID 32646 (/Users/edelgado/dev/api-motortracker/target/classes started by edelgado in /Users/edelgado/dev/api-motortracker)
+2022-06-16 08:18:02,089 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-06-16 08:18:02,394 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-06-16 08:18:02,421 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 22 ms. Found 4 JPA repository interfaces.
+2022-06-16 08:18:02,645 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2022-06-16 08:18:02,650 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2022-06-16 08:18:02,651 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2022-06-16 08:18:02,651 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-06-16 08:18:02,694 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2022-06-16 08:18:02,694 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 578 ms
+2022-06-16 08:18:02,742 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-06-16 08:18:02,817 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-06-16 08:18:02,863 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-06-16 08:18:02,888 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.5.Final
+2022-06-16 08:18:02,963 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-16 08:18:03,013 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL81Dialect
+2022-06-16 08:18:03,289 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-16 08:18:03,294 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-06-16 08:18:03,499 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-06-16 08:18:03,654 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2022-06-16 08:18:03,670 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2022-06-16 08:18:03,677 INFO org.springframework.boot.StartupInfoLogger [main] Started MotortrackerApplication in 1.84 seconds (JVM running for 2.209)
+2022-06-16 08:18:14,691 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-06-16 08:18:14,695 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2022-06-16 08:18:14,698 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 2 ms
+2022-06-16 08:18:14,934 INFO api.motortracker.motortracker.endpoint.CarEndpoint [http-nio-8080-exec-3] hello
+2022-06-16 08:18:18,939 INFO api.motortracker.motortracker.endpoint.CarEndpoint [http-nio-8080-exec-4] hello
+2022-06-16 08:18:19,701 INFO api.motortracker.motortracker.endpoint.CarEndpoint [http-nio-8080-exec-6] hello
+2022-06-16 08:18:20,314 INFO api.motortracker.motortracker.endpoint.CarEndpoint [http-nio-8080-exec-8] hello
+2022-06-16 08:18:21,609 INFO api.motortracker.motortracker.endpoint.CarEndpoint [http-nio-8080-exec-9] hello
+2022-06-16 08:18:27,183 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-06-16 08:18:27,184 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-06-16 08:18:27,187 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-06-16 08:45:49,376 INFO org.springframework.boot.StartupInfoLogger [main] Starting MotortrackerApplication using Java 11.0.12 on enriques-mbp.lan with PID 33025 (/Users/edelgado/dev/api-motortracker/target/classes started by edelgado in /Users/edelgado/dev/api-motortracker)
+2022-06-16 08:45:49,377 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-06-16 08:45:49,640 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-06-16 08:45:49,670 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 22 ms. Found 4 JPA repository interfaces.
+2022-06-16 08:45:49,864 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2022-06-16 08:45:49,869 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2022-06-16 08:45:49,870 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2022-06-16 08:45:49,870 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.58]
+2022-06-16 08:45:49,906 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2022-06-16 08:45:49,906 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 507 ms
+2022-06-16 08:45:49,939 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-06-16 08:45:50,009 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-06-16 08:45:50,057 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-06-16 08:45:50,077 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.6.5.Final
+2022-06-16 08:45:50,144 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-06-16 08:45:50,188 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL81Dialect
+2022-06-16 08:45:50,423 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-16 08:45:50,429 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-06-16 08:45:50,619 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-06-16 08:45:50,741 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2022-06-16 08:45:50,755 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2022-06-16 08:45:50,761 INFO org.springframework.boot.StartupInfoLogger [main] Started MotortrackerApplication in 1.639 seconds (JVM running for 2.023)
+2022-06-16 08:46:20,216 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-06-16 08:46:20,221 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2022-06-16 08:46:20,223 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 1 ms
+2022-06-16 08:46:20,484 INFO api.motortracker.motortracker.endpoint.CarEndpoint [http-nio-8080-exec-2] hello
+2022-06-16 08:46:23,238 INFO api.motortracker.motortracker.endpoint.CarEndpoint [http-nio-8080-exec-3] hello
+2022-06-16 08:46:23,714 INFO api.motortracker.motortracker.endpoint.CarEndpoint [http-nio-8080-exec-4] hello
+2022-06-16 08:46:24,133 INFO api.motortracker.motortracker.endpoint.CarEndpoint [http-nio-8080-exec-5] hello
+2022-06-16 08:47:58,883 INFO api.motortracker.motortracker.endpoint.CarEndpoint [http-nio-8080-exec-7] hello
+2022-06-16 08:48:01,015 INFO api.motortracker.motortracker.endpoint.CarEndpoint [http-nio-8080-exec-10] hello
+2022-06-16 08:48:04,340 INFO api.motortracker.motortracker.endpoint.CarEndpoint [http-nio-8080-exec-1] hello
+2022-06-16 08:48:05,085 INFO api.motortracker.motortracker.endpoint.CarEndpoint [http-nio-8080-exec-2] hello
+2022-06-16 08:48:05,456 INFO api.motortracker.motortracker.endpoint.CarEndpoint [http-nio-8080-exec-3] hello
+2022-06-16 08:48:08,029 INFO api.motortracker.motortracker.endpoint.CarEndpoint [http-nio-8080-exec-4] hello
+2022-06-16 08:48:13,751 INFO api.motortracker.motortracker.endpoint.CarEndpoint [http-nio-8080-exec-5] hello
+2022-06-16 08:48:22,973 INFO api.motortracker.motortracker.endpoint.CarEndpoint [http-nio-8080-exec-7] hello
+2022-06-16 08:49:16,506 INFO api.motortracker.motortracker.endpoint.CarEndpoint [http-nio-8080-exec-9] hello
+2022-06-16 08:50:42,691 INFO api.motortracker.motortracker.endpoint.CarEndpoint [http-nio-8080-exec-2] hello
+2022-06-16 08:50:44,488 INFO api.motortracker.motortracker.endpoint.CarEndpoint [http-nio-8080-exec-4] hello
+2022-06-16 08:50:51,569 INFO api.motortracker.motortracker.endpoint.CarEndpoint [http-nio-8080-exec-6] hello
+2022-06-16 08:51:10,196 INFO api.motortracker.motortracker.endpoint.CarEndpoint [http-nio-8080-exec-9] hello
+2022-06-16 08:51:10,518 INFO api.motortracker.motortracker.endpoint.CarEndpoint [http-nio-8080-exec-1] hello
+2022-06-16 08:51:12,207 INFO api.motortracker.motortracker.endpoint.CarEndpoint [http-nio-8080-exec-3] hello
+2022-06-16 08:51:13,524 INFO api.motortracker.motortracker.endpoint.CarEndpoint [http-nio-8080-exec-4] hello
+2022-06-16 08:52:28,114 INFO api.motortracker.motortracker.endpoint.CarEndpoint [http-nio-8080-exec-8] hello
+2022-06-16 08:52:30,527 INFO api.motortracker.motortracker.endpoint.CarEndpoint [http-nio-8080-exec-10] hello
+2022-06-16 08:52:33,700 INFO api.motortracker.motortracker.endpoint.CarEndpoint [http-nio-8080-exec-1] hello
+2022-06-16 08:53:05,747 INFO api.motortracker.motortracker.endpoint.CarEndpoint [http-nio-8080-exec-3] hello
+2022-06-16 08:53:07,221 INFO api.motortracker.motortracker.endpoint.CarEndpoint [http-nio-8080-exec-5] hello
+2022-06-16 08:53:08,077 INFO api.motortracker.motortracker.endpoint.CarEndpoint [http-nio-8080-exec-6] hello
+2022-06-16 08:53:09,100 INFO api.motortracker.motortracker.endpoint.CarEndpoint [http-nio-8080-exec-7] hello

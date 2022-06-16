@@ -4,16 +4,17 @@ import api.motortracker.motortracker.model.Car;
 import api.motortracker.motortracker.model.CarStats;
 import api.motortracker.motortracker.repository.CarRepository;
 import api.motortracker.motortracker.repository.CarStatsRepository;
-import api.motortracker.motortracker.resource.CarResource;
 import api.motortracker.motortracker.resource.CarStatsResource;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.*;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CarStatsService {
@@ -26,38 +27,39 @@ public class CarStatsService {
     @Autowired
     private CarRepository carRepository;
 
+    /**
+     * Find the car statistics for the provided car using the provided pageable.
+     *
+     * @param plate the car plate used to fetch and validate car
+     * @param pageable th pageable coming from the client
+     * @return the pageable list of CarStatsResource
+     */
     public Page<CarStatsResource> findCarStats(String plate, Pageable pageable) {
-
-        //validate
         Car car = carRepository.findByPlate(plate);
 
         if (car == null) {
             throw new IllegalArgumentException("Invalid plate");
         }
 
-        //Pageable pageable = PageRequest.of(0, 5, Sort.by(Sort.Direction.DESC, "timeStamp"));
-
         Page<CarStats> carStatsList = carStatsRepository.findByCar(car, pageable);
 
-        List<CarStatsResource> carStatsResources = new ArrayList<>();
-
-        for (CarStats stat : carStatsList.getContent()) {
-            CarStatsResource carStatsResource = new CarStatsResource();
-            carStatsResource.setId(stat.getId());
-            carStatsResource.setTimeStamp(simpleDateFormat.format(stat.getTimeStamp()));
-            carStatsResource.setAirTemp(stat.getAirTemp());
-            carStatsResource.setCoolant(stat.getCoolant());
-            carStatsResource.setBoostPressure(stat.getBoostPressure());
-            carStatsResource.setOilPressure(stat.getOilPressure());
-            carStatsResource.setOilTemp(stat.getOilTemp());
-
-            carStatsResources.add(carStatsResource);
-        }
-
-        Page p = new PageImpl(carStatsResources, pageable, carStatsList.getTotalElements());
+        List<CarStatsResource> carStatsResources =
+                carStatsList.stream()
+                            .map(stat -> CarStatsResource
+                                        .builder()
+                                        .id(stat.getId())
+                                        .timeStamp(simpleDateFormat.format(stat.getTimeStamp()))
+                                        .airTemp(stat.getAirTemp())
+                                        .coolant(stat.getCoolant())
+                                        .boostPressure(stat.getBoostPressure())
+                                        .oilPressure(stat.getOilPressure())
+                                        .oilTemp(stat.getOilTemp())
+                                        .build())
+                            .collect(Collectors.toList());
 
         return new PageImpl(carStatsResources, pageable, carStatsList.getTotalElements());
     }
+
 
     public CarStatsResource saveCarStats(CarStatsResource carStatsResource) {
 

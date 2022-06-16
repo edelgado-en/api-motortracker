@@ -2,6 +2,8 @@ package api.motortracker.motortracker.endpoint;
 
 import api.motortracker.motortracker.resource.CarResource;
 import api.motortracker.motortracker.resource.CarStatsResource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.MediaType;
@@ -13,6 +15,8 @@ import java.util.List;
 @RestController
 @RequestMapping(value = CarEndpoint.BASE_ENDPOINT, produces = MediaType.APPLICATION_JSON_VALUE)
 public class CarEndpoint {
+
+    Logger logger = LoggerFactory.getLogger(CarEndpoint.class);
 
     public static final String BASE_ENDPOINT = "/car";
 
@@ -45,6 +49,9 @@ public class CarEndpoint {
     @PostMapping(value = "/stats/search", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Page<CarStatsResource>> findCarStats(@RequestBody CarResource carResource,
                                                                Pageable pageable) {
+
+        logger.info("hello");
+
         return helper.findCarStats(carResource, pageable);
     }
 

@@ -55,10 +55,4 @@ public class CarEndpointHelper {
 
         return new ResponseEntity<>(savedCarStatsResource, HttpStatus.OK);
     }
-
-    /*boolean isUserAuthenticated = cognitoClientSService.isUserAuthenticated(userName, accessToken);
-
-        if (!isUserAuthenticated) {
-            return new ResponseEntity<>(null, HttpStatus.UNAUTHORIZED);
-        }*/
 }
