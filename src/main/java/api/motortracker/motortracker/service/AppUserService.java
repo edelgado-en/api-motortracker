@@ -28,6 +28,7 @@ public class AppUserService {
                 .displayName(appUser.getDisplayName())
                 .email(appUser.getEmail())
                 .uid(appUser.getUid())
+                .isFirstTime(false)// TODO do this for Zach
                 .build();
     }
 }

@@ -20,4 +20,6 @@ public class AppUserResource implements Serializable {
     private String email;
 
     private String uid;
+
+    private boolean isFirstTime;
 }

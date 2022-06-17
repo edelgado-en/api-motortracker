@@ -26,6 +26,8 @@ public class CarEndpoint {
         this.helper = aHelper;
     }
 
+    //TODO: ADD OPENAPI FOR DOCUMENTATION FOR ZACH
+
     @PostMapping(value = "/register", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<CarResource> registerCar(@RequestBody CarResource carResource) {
         return helper.registerCar(carResource);

@@ -60,7 +60,6 @@ public class CarStatsService {
         return new PageImpl(carStatsResources, pageable, carStatsList.getTotalElements());
     }
 
-
     public CarStatsResource saveCarStats(CarStatsResource carStatsResource) {
 
         //validate plate
@@ -86,16 +85,16 @@ public class CarStatsService {
 
         CarStats savedCarStats = carStatsRepository.save(newCarStats);
 
-        CarStatsResource savedResource = new CarStatsResource();
-        savedResource.setId(savedCarStats.getId());
-        savedResource.setTimeStamp(simpleDateFormat.format(savedCarStats.getTimeStamp()));
-        savedResource.setCoolant(savedCarStats.getCoolant());
-        savedResource.setAirTemp(savedCarStats.getAirTemp());
-        savedResource.setBoostPressure(savedCarStats.getBoostPressure());
-        savedResource.setOilPressure(savedCarStats.getOilPressure());
-        savedResource.setOilTemp(savedCarStats.getOilTemp());
-
-        return savedResource;
+        return CarStatsResource
+                .builder()
+                .id(savedCarStats.getId())
+                .timeStamp(simpleDateFormat.format(savedCarStats.getTimeStamp()))
+                .coolant(savedCarStats.getCoolant())
+                .airTemp(savedCarStats.getAirTemp())
+                .boostPressure(savedCarStats.getBoostPressure())
+                .oilPressure(savedCarStats.getOilPressure())
+                .oilTemp(savedCarStats.getOilTemp())
+                .build();
 
     }
 }
