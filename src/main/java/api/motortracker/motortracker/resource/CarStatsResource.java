@@ -23,6 +23,13 @@ public class CarStatsResource implements Serializable {
 
     private String trackerSerialNumber;
 
+    private CarStatThresholdResource coolantThreshold;
+    private CarStatThresholdResource oilTempThreshold;
+    private CarStatThresholdResource oilPressureThreshold;
+    private CarStatThresholdResource boostPressureThreshold;
+    private CarStatThresholdResource fuelPressureThreshold;
+    private CarStatThresholdResource airFuelRatioThreshold;
+
     //coolant temp normal < 220
     //warning  220-240
     //danger > 240

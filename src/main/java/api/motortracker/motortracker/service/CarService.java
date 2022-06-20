@@ -7,6 +7,8 @@ import api.motortracker.motortracker.repository.AppUserRepository;
 import api.motortracker.motortracker.repository.CarRepository;
 import api.motortracker.motortracker.repository.TrackerRepository;
 import api.motortracker.motortracker.resource.CarResource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,6 +16,8 @@ import java.util.stream.Collectors;
 
 @Service
 public class CarService {
+
+    Logger log = LoggerFactory.getLogger(CarService.class);
 
     private CarRepository carRepository;
 
@@ -82,6 +86,7 @@ public class CarService {
         Tracker tracker = trackerRepository.findBySerialNumber(serialNumber);
 
         if (tracker == null) {
+            log.error("Tracker: {} not found in the database", serialNumber);
             throw new IllegalArgumentException("Invalid tracker serial number");
         }
 
@@ -92,6 +97,7 @@ public class CarService {
         AppUser appUser = appUserRepository.findByUid(uid);
 
         if (appUser == null) {
+            log.error("UID: {} not found in the database", uid);
             throw new IllegalArgumentException("Invalid user");
         }
 
@@ -102,10 +108,12 @@ public class CarService {
         Car car = carRepository.findByPlate(plate);
 
         if (car != null) {
+            log.error("Plate: {} not found in the database", plate);
             throw new IllegalArgumentException("Car plate already registered");
         }
     }
 
+    //TODO: add a builder annotation to the entity.
     Car buildCar(CarResource carResource, AppUser appUser, Tracker tracker) {
         Car newCar = new Car();
         newCar.setAppUser(appUser);
@@ -116,6 +124,11 @@ public class CarService {
         return newCar;
     }
 
+    /**
+     * Gets all the cars from the database.
+     *
+     * @return the list of car resources
+     */
     public List<CarResource> findCars() {
         List<Car> cars = (List<Car>) carRepository.findAll();
 
